@@ -21,13 +21,8 @@ override_dh_auto_install:
 	rm debian/nfsen/etc/nfsen/nfsen-dist.conf
 	# Cleanup the installed paths
 	for i in `rgrep -l debian/nfsen debian/nfsen`; do sed -i 's:debian/nfsen::' $$i; done
-	# Fix up the perms
-	chmod -x debian/nfsen/usr/share/nfsen/lib/*.pm
 	# Move files around
 	mv debian/nfsen/usr/bin/RebuildHierarchy.pl debian/nfsen/usr/bin/RebuildHierarchy
 
 override_dh_installchangelogs:
 	dh_installchangelogs ChangeLog upstream
-
-override_dh_perl:
-	dh_perl debian/nfsen/usr/share/nfsen/lib
