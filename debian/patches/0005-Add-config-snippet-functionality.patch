@@ -9,7 +9,7 @@ Subject: Add config snippet functionality
  create mode 100644 etc/nfsen.d/README
 
 diff --git a/etc/nfsen-dist.conf b/etc/nfsen-dist.conf
-index 9abcc28..667d732 100644
+index ef0346f..3ba6d1a 100644
 --- a/etc/nfsen-dist.conf
 +++ b/etc/nfsen-dist.conf
 @@ -300,4 +300,9 @@ Alert '@alert@' triggered at timeslot @timeslot@

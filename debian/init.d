@@ -21,6 +21,8 @@ DAEMON=/usr/bin/nfsen  # Introduce the server's location here
 DAEMON_ARGS=""             # Arguments to run the daemon with
 PIDFILE=/var/run/$NAME.pid
 SCRIPTNAME=/etc/init.d/$NAME
+USER=www-data
+GROUP=www-data
 
 # Exit if the package is not installed
 [ -x $DAEMON ] || exit 0
@@ -38,6 +40,8 @@ SCRIPTNAME=/etc/init.d/$NAME
 case "$1" in
   start)
     [ "$VERBOSE" != no ] && log_daemon_msg "Starting $DESC " "$NAME"
+    mkdir -p /var/run/nfsen
+    sudo chown -R $USER.$GROUP-data /var/run/nfsen
     $DAEMON start
     case "$?" in
 		0|1) [ "$VERBOSE" != no ] && log_end_msg 0 ;;
