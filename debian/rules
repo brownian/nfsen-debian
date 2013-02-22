@@ -22,7 +22,7 @@ override_dh_auto_install:
 	# Cleanup the installed paths
 	for i in `rgrep -l debian/nfsen debian/nfsen`; do sed -i 's:debian/nfsen::' $$i; done
 	# Fix up the perms
-	chmod -x debian/nfsen/usr/libexec/nfsen/*.pm
+	#chmod -x debian/nfsen/usr//nfsen/*.pm
 
-dh_override_installchangelog:
+override_dh_installchangelog:
 	dh_installchangelogs ChangeLog upstream
