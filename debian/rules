@@ -21,6 +21,7 @@ override_dh_auto_install:
 	rm debian/nfsen/etc/nfsen/nfsen-dist.conf
 	# Cleanup the installed paths
 	for i in `rgrep -l debian/nfsen debian/nfsen`; do sed -i 's:debian/nfsen::' $$i; done
+	sed -i 's:$$BASEDIR = "debian/nfsen";:$$BASEDIR = "/usr";
 	# Move files around
 	mv debian/nfsen/usr/bin/RebuildHierarchy.pl debian/nfsen/usr/bin/RebuildHierarchy
 
