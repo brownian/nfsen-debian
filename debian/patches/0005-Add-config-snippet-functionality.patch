@@ -9,14 +9,14 @@ Subject: Add config snippet functionality
  create mode 100644 etc/nfsen.d/README
 
 diff --git a/etc/nfsen-dist.conf b/etc/nfsen-dist.conf
-index 9abcc28..0a85153 100644
+index 9abcc28..667d732 100644
 --- a/etc/nfsen-dist.conf
 +++ b/etc/nfsen-dist.conf
 @@ -300,4 +300,9 @@ Alert '@alert@' triggered at timeslot @timeslot@
  #    'cycletime'  => '30',				# 30s per 5min slot
  # );
  
-+my @configs = grep { -f } glob "${CONFDIR}/*.conf";
++my @configs = grep { -f } glob "${CONFDIR}/nfsen.d/*.conf";
 +foreach $config (@configs) {
 + do $config;
 +}
