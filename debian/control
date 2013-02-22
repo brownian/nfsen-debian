@@ -9,7 +9,7 @@ Vcs-Git: git://git.github.com/bulletproofnetworks/nfsen-debian.git
 Vcs-Browser: http://git.github.com/bulletproofnetworks/nfsen-debian
 
 Package: nfsen
-Architecture: any
+Architecture: all
 Depends: ${shlibs:Depends}, ${misc:Depends}, nfdump (>= 1.6.1), librrds-perl (>= 1.2.11)
 Description: web frontend to nfdump netflow tools
  allows one to keep all the convenient advantages of the command line using
