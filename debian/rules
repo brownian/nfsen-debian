@@ -21,6 +21,7 @@ override_dh_auto_install:
 	rm debian/nfsen/etc/nfsen/nfsen-dist.conf
 	# Move files around
 	mv debian/nfsen/usr/bin/RebuildHierarchy.pl debian/nfsen/usr/bin/RebuildHierarchy
+	rm debian/nfsen/etc/nfsen/nfsen.d/dummy
 
 override_dh_installchangelogs:
 	dh_installchangelogs ChangeLog upstream
