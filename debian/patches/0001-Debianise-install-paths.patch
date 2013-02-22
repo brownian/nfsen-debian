@@ -7,7 +7,7 @@ Subject: Debianise install paths
  1 file changed, 13 insertions(+), 13 deletions(-)
 
 diff --git a/etc/nfsen-dist.conf b/etc/nfsen-dist.conf
-index cf08470..74aee60 100644
+index cf08470..331137a 100644
 --- a/etc/nfsen-dist.conf
 +++ b/etc/nfsen-dist.conf
 @@ -18,25 +18,25 @@
@@ -37,7 +37,7 @@ index cf08470..74aee60 100644
  # All php scripts will be installed here.
  # URL: Entry point for nfsen: http://<webserver>/nfsen/nfsen.php
 -$HTMLDIR    = "/var/www/nfsen/";
-+$HTMLDIR    = "${BASEDIR}/var/www/nfsen/";
++$HTMLDIR    = "${BASEDIR}/usr/share/nfsen/www";
  
  #
  # Where to install the docs
