@@ -4,27 +4,62 @@ Subject: Clean up install script
 
 * Don't ask for perl version
 * Don't check nfdump binaries exist
+* Don't check the nfdump version
 ---
- install.pl |    8 ++++----
- 1 file changed, 4 insertions(+), 4 deletions(-)
+ install.pl |   42 +++++++++++++++++++++---------------------
+ 1 file changed, 21 insertions(+), 21 deletions(-)
 
 diff --git a/install.pl b/install.pl
-index 2f9c342..68f1698 100755
+index 2f9c342..fcee72e 100755
 --- a/install.pl
 +++ b/install.pl
-@@ -198,9 +198,9 @@ sub VerifyConfig {
+@@ -198,26 +198,26 @@ sub VerifyConfig {
  
  	die "Missing PREFIX directory of nfdump tools!\n" unless defined $NfConf::PREFIX;
  	die "Configured PREFIX directory '$NfConf::PREFIX' not found!\n" unless -d  $NfConf::PREFIX;
 -	foreach my $binary ( 'nfcapd', 'nfdump', 'nfprofile' ) {
 -		die "nfdump tools installation error: '$binary' not found in '$NfConf::PREFIX'" unless -f "$NfConf::PREFIX/$binary";
 -	}
+-
+-	my @out = `$NfConf::PREFIX/nfdump -V`;
+-	if ( scalar @out <= 0 ) {
+-		die "Error getting nfdump version";
+-	}
+-	chomp $out[0];
+-	my ($major, $minor) = $out[0] =~ /Version:\s(\d)\.(\d+)/;
+-	if ( defined $major && defined $minor) {
+-		if ( $major >= 1 && $minor >= 6 ) {
+-			print "Found $out[0]\n";
+-		} elsif ( $out[0] =~ /Version:\s1.5.8-\d+-NSEL/ )  {
+-			print "Found nfdump NSEL\n";
+-		} else {
+-			print "$out[0]\n";
+-			die "Nfdump version not compatible with current NfSen version.\n";
+-		}
+-	} 
 +	#foreach my $binary ( 'nfcapd', 'nfdump', 'nfprofile' ) {
 +	#	die "nfdump tools installation error: '$binary' not found in '$NfConf::PREFIX'" unless -f "$NfConf::PREFIX/$binary";
 +	#}
++
++  #my @out = `$NfConf::PREFIX/nfdump -V`;
++  #if ( scalar @out <= 0 ) {
++  #	die "Error getting nfdump version";
++  #}
++  #chomp $out[0];
++  #my ($major, $minor) = $out[0] =~ /Version:\s(\d)\.(\d+)/;
++  #if ( defined $major && defined $minor) {
++  #	if ( $major >= 1 && $minor >= 6 ) {
++  #		print "Found $out[0]\n";
++  #	} elsif ( $out[0] =~ /Version:\s1.5.8-\d+-NSEL/ )  {
++  #		print "Found nfdump NSEL\n";
++  #	} else {
++  #		print "$out[0]\n";
++  #		die "Nfdump version not compatible with current NfSen version.\n";
++  #	}
++  #} 
  
- 	my @out = `$NfConf::PREFIX/nfdump -V`;
- 	if ( scalar @out <= 0 ) {
+ 	my $www_gid = getgrnam($NfConf::WWWGROUP) || 
+ 		die "WWW group '$NfConf::WWWGROUP' not found on this system\n";
 @@ -701,7 +701,7 @@ print "Version: $nfsen_version: $VERSION\n\n";
  
  # Get Perl
