@@ -28,3 +28,6 @@ override_dh_auto_install:
 
 override_dh_installchangelogs:
 	dh_installchangelogs ChangeLog upstream
+
+override_dh_perl:
+	dh_perl debian/nfsen/usr/share/nfsen/lib
