@@ -1,0 +1,31 @@
+From: John Ferlito <johnf@inodes.org>
+Date: Fri, 22 Feb 2013 19:35:33 +1100
+Subject: Add config snippet functionality
+
+---
+ etc/nfsen-dist.conf |    5 +++++
+ etc/nfsen.d/README  |    1 +
+ 2 files changed, 6 insertions(+)
+ create mode 100644 etc/nfsen.d/README
+
+diff --git a/etc/nfsen-dist.conf b/etc/nfsen-dist.conf
+index e9f6947..fc96386 100644
+--- a/etc/nfsen-dist.conf
++++ b/etc/nfsen-dist.conf
+@@ -300,4 +300,9 @@ Alert '@alert@' triggered at timeslot @timeslot@
+ #    'cycletime'  => '30',				# 30s per 5min slot
+ # );
+ 
++my @configs = grep { -f } glob "${CONFDIR}/*.conf";
++foreach $config (@configs) {
++ do $config;
++}
++
+ 1;
+diff --git a/etc/nfsen.d/README b/etc/nfsen.d/README
+new file mode 100644
+index 0000000..d159e56
+--- /dev/null
++++ b/etc/nfsen.d/README
+@@ -0,0 +1 @@
++Place perl snippets in here ending in .conf and they will be included into the config file.
