@@ -7,7 +7,7 @@ Subject: Debianise install paths
  1 file changed, 11 insertions(+), 11 deletions(-)
 
 diff --git a/etc/nfsen-dist.conf b/etc/nfsen-dist.conf
-index cf08470..1ee090b 100644
+index cf08470..bd9e93e 100644
 --- a/etc/nfsen-dist.conf
 +++ b/etc/nfsen-dist.conf
 @@ -18,7 +18,7 @@
@@ -15,7 +15,7 @@ index cf08470..1ee090b 100644
  #
  # Required for default layout
 -$BASEDIR = "/data/nfsen";
-+$BASEDIR = "debian/tmp/usr";
++$BASEDIR = "debian/nfsen/usr";
  
  #
  # Where to install the NfSen binaries
