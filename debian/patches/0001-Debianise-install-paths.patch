@@ -3,11 +3,11 @@ Date: Fri, 22 Feb 2013 15:55:27 +1100
 Subject: Debianise install paths
 
 ---
- etc/nfsen-dist.conf |   24 ++++++++++++------------
- 1 file changed, 12 insertions(+), 12 deletions(-)
+ etc/nfsen-dist.conf |   26 +++++++++++++-------------
+ 1 file changed, 13 insertions(+), 13 deletions(-)
 
 diff --git a/etc/nfsen-dist.conf b/etc/nfsen-dist.conf
-index cf08470..e769a53 100644
+index cf08470..74aee60 100644
 --- a/etc/nfsen-dist.conf
 +++ b/etc/nfsen-dist.conf
 @@ -18,25 +18,25 @@
@@ -41,6 +41,15 @@ index cf08470..e769a53 100644
  
  #
  # Where to install the docs
+@@ -44,7 +44,7 @@ $DOCDIR="${HTMLDIR}/doc";
+ 
+ #
+ # Var space for NfSen
+-$VARDIR="${BASEDIR}/var";
++$VARDIR="${BASEDIR}/var/nfsen";
+ 
+ # directory for all pid files
+ # $PIDDIR="$VARDIR/run";
 @@ -60,15 +60,15 @@ $VARDIR="${BASEDIR}/var";
  #
  # The Profiles stat directory, where all profile information
