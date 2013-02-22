@@ -7,7 +7,7 @@ Subject: Remove sources so verification doesn't fail
  1 file changed, 3 insertions(+), 3 deletions(-)
 
 diff --git a/etc/nfsen-dist.conf b/etc/nfsen-dist.conf
-index 52f8434..5188b84 100644
+index bd9e93e..d641a0c 100644
 --- a/etc/nfsen-dist.conf
 +++ b/etc/nfsen-dist.conf
 @@ -160,9 +160,9 @@ $PROFILERS = 6;
