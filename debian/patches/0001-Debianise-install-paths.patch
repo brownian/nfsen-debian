@@ -3,11 +3,11 @@ Date: Fri, 22 Feb 2013 15:10:09 +1100
 Subject: Debianise install paths
 
 ---
- etc/nfsen-dist.conf |   20 ++++++++++----------
- 1 file changed, 10 insertions(+), 10 deletions(-)
+ etc/nfsen-dist.conf |   22 +++++++++++-----------
+ 1 file changed, 11 insertions(+), 11 deletions(-)
 
 diff --git a/etc/nfsen-dist.conf b/etc/nfsen-dist.conf
-index cf08470..a023407 100644
+index cf08470..52f8434 100644
 --- a/etc/nfsen-dist.conf
 +++ b/etc/nfsen-dist.conf
 @@ -18,7 +18,7 @@
@@ -68,7 +68,12 @@ index cf08470..a023407 100644
  
  #
  # nfsend communication socket
-@@ -92,8 +92,8 @@ $USER    = "netflow";
+@@ -88,12 +88,12 @@ $PREFIX  = '/usr/local/bin';
+ # This may be a different or the same uid than your web server.
+ # Note: This user must be in group $WWWGROUP, otherwise nfcapd
+ #       is not able to write data files!
+-$USER    = "netflow";
++$USER    = "www-data";
  
  # user and group of the web server process
  # All netflow processing will be done with this user
