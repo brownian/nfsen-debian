@@ -3,41 +3,40 @@ Date: Fri, 22 Feb 2013 15:55:27 +1100
 Subject: Debianise install paths
 
 ---
- etc/nfsen-dist.conf |   26 +++++++++++++-------------
- 1 file changed, 13 insertions(+), 13 deletions(-)
+ etc/nfsen-dist.conf |   24 ++++++++++++------------
+ 1 file changed, 12 insertions(+), 12 deletions(-)
 
 diff --git a/etc/nfsen-dist.conf b/etc/nfsen-dist.conf
-index cf08470..b1b279e 100644
+index cf08470..2a5437d 100644
 --- a/etc/nfsen-dist.conf
 +++ b/etc/nfsen-dist.conf
-@@ -18,25 +18,25 @@
+@@ -18,7 +18,7 @@
  
  #
  # Required for default layout
 -$BASEDIR = "/data/nfsen";
-+$BASEDIR = "debian/nfsen";
++$BASEDIR = "/usr";
  
  #
  # Where to install the NfSen binaries
--$BINDIR="${BASEDIR}/bin";
-+$BINDIR="${BASEDIR}/usr/bin";
+@@ -26,17 +26,17 @@ $BINDIR="${BASEDIR}/bin";
  
  #
  # Where to install the NfSen Perl modules
 -$LIBEXECDIR="${BASEDIR}/libexec";
-+$LIBEXECDIR="${BASEDIR}/usr/share/perl5/nfsen";
++$LIBEXECDIR="${BASEDIR}/share/perl5/nfsen";
  
  #
  # Where to install the config files
 -$CONFDIR="${BASEDIR}/etc";
-+$CONFDIR="${BASEDIR}/etc/nfsen";
++$CONFDIR="/etc/nfsen";
  
  #
  # NfSen html pages directory:
  # All php scripts will be installed here.
  # URL: Entry point for nfsen: http://<webserver>/nfsen/nfsen.php
 -$HTMLDIR    = "/var/www/nfsen/";
-+$HTMLDIR    = "${BASEDIR}/usr/share/nfsen/www";
++$HTMLDIR    = "${BASEDIR}/share/nfsen/www";
  
  #
  # Where to install the docs
@@ -46,7 +45,7 @@ index cf08470..b1b279e 100644
  #
  # Var space for NfSen
 -$VARDIR="${BASEDIR}/var";
-+$VARDIR="${BASEDIR}/var/lib/nfsen";
++$VARDIR="/var/lib/nfsen";
  
  # directory for all pid files
  # $PIDDIR="$VARDIR/run";
@@ -74,7 +73,7 @@ index cf08470..b1b279e 100644
  #
  # nfdump tools path
 -$PREFIX  = '/usr/local/bin';
-+$PREFIX  = "${BASEDIR}/usr/bin";
++$PREFIX  = "${BASEDIR}/bin";
  
  #
  # nfsend communication socket
