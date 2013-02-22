@@ -17,7 +17,7 @@
 PATH=/sbin:/usr/sbin:/bin:/usr/bin
 DESC=nfsen             # Introduce a short description here
 NAME=nfsen             # Introduce the short server's name here
-DAEMON=/usr/sbin/nfsen # Introduce the server's location here
+DAEMON=/usr/bin/nfsen  # Introduce the server's location here
 DAEMON_ARGS=""             # Arguments to run the daemon with
 PIDFILE=/var/run/$NAME.pid
 SCRIPTNAME=/etc/init.d/$NAME
