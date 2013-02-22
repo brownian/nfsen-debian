@@ -7,7 +7,7 @@ Subject: Debianise install paths
  1 file changed, 13 insertions(+), 13 deletions(-)
 
 diff --git a/etc/nfsen-dist.conf b/etc/nfsen-dist.conf
-index cf08470..331137a 100644
+index cf08470..380e74d 100644
 --- a/etc/nfsen-dist.conf
 +++ b/etc/nfsen-dist.conf
 @@ -18,25 +18,25 @@
@@ -25,7 +25,7 @@ index cf08470..331137a 100644
  #
  # Where to install the NfSen Perl modules
 -$LIBEXECDIR="${BASEDIR}/libexec";
-+$LIBEXECDIR="${BASEDIR}/usr/libexec/nfsen";
++$LIBEXECDIR="${BASEDIR}/usr/share/nfsen/lib";
  
  #
  # Where to install the config files
