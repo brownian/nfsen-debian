@@ -44,7 +44,7 @@ index 0000000..fd9292b
 +GNU/Linux system (but may be used by others).
 diff --git a/man/nfsen.8 b/man/nfsen.8
 new file mode 100644
-index 0000000..c937733
+index 0000000..2c29092
 --- /dev/null
 +++ b/man/nfsen.8
 @@ -0,0 +1,225 @@
@@ -92,23 +92,23 @@ index 0000000..c937733
 +.SH "OPTIONS"
 +
 +.TP
-+.B --help|-h 
++.B \-\-help|-h 
 +This help
 +
 +.TP
-+.B --version|-V
++.B \-\-version|-V
 +Version of nfsen
 +
 +.TP
-+.B --get-profilelist|-A
++.B \-\-get-profilelist|-A
 +List all profiles.
 +
 +.TP
-+\fB--get-profile|-l\fR \fIprofile\fR
++\fB\-\-get-profile|-l\fR \fIprofile\fR
 +List profile with \fIprofile\fR == [profilegroup/]profilename
 +
 +.TP
-+\fB--add-profile|-a\fR \fIprofile\fR
++\fB\-\-add-profile|-a\fR \fIprofile\fR
 +Add new profile with \fIprofile\fR == [profilegroup/]profilename
 +
 +.SS Optional parameters:
@@ -140,23 +140,23 @@ index 0000000..c937733
 +
 +.PP
 +The new profile has no channels assigned yet and stays in status 'new'. Assign
-+new channels with --add-channel. When all channels added, commit the profile
-+with --commit-profile
++new channels with \-\-add-channel. When all channels added, commit the profile
++with \-\-commit-profile
 +
 +.TP
-+.B --commit-profile|-c \fIprofile\fR
++.B \-\-commit-profile|-c \fIprofile\fR
 +Commit  a new profile with \fIprofile\fR == [profilegroup/]profilename A new
-+created profile with all initial channels added is commited.  A history profile
++created profile with all initial channels added is committed.  A history profile
 +is built. A continuous profile starts profiling.  Only profiles in status 'new'
 +can be commited.
 +
 +.TP
-+.B --delete-profile|-d \fIprofile\fR
++.B \-\-delete-profile|-d \fIprofile\fR
 +Delete profile with \fIprofile\fR == [profilegroup/]profilename
 +All including channels and netflow data will be deleted.
 +
 +.TP
-+.B --modify-profile|-m \fIprofile\fR
++.B \-\-modify-profile|-m \fIprofile\fR
 +Modify profile with \fIprofile\fR == [profilegroup/]profilename
 +
 +.SS Optional parameters:
@@ -180,17 +180,17 @@ index 0000000..c937733
 +reasons, why a profile is locked.
 +
 +.TP
-+.B --rebuild-profile|-r \fIprofile\fR
++.B \-\-rebuild-profile|-r \fIprofile\fR
 +Rebuilds profile with \fIprofile\fR == [profilegroup/]profilename
 +Scans all channels in the given profile and recalculates the size. Graphics
 +data are not affected.
 +
 +.TP
-+.B --expire-profile|-X \fIprofile\fR
++.B \-\-expire-profile|-X \fIprofile\fR
 +Immediately expires the given profile with \fIprofile\fR == [profilegroup/]profilename
 +
 +.TP
-+.B --add-channel \fIchannelname\fR
++.B \-\-add-channel \fIchannelname\fR
 +Add new channel with \fIchannelname\fR == [[profilegroup/]profile/]channel
 +profilegroup and profile can also be specified using the optional parameters
 +below.
@@ -235,15 +235,15 @@ index 0000000..c937733
 +Move profile into new group \fInewgroup\fR
 +
 +.TP
-+.B --delete-channel \fIchannelname\fR
++.B \-\-delete-channel \fIchannelname\fR
 +Delete a given channel from a profile. All netflow und graphic data are deleted.
-+Format for \fIchannelname\fR see --add-channel.
++Format for \fIchannelname\fR see \-\-add-channel.
 +
 +.TP
-+.B --modify-channel \fIchannelname\fR
++.B \-\-modify-channel \fIchannelname\fR
 +Modifies a given channel in a profile. Format for \fIchannelname\fR see
-+--add-channel.  All optional parameters specified in --add-channel can be
-+changed with --modify-profile.  See --add-channel.
++\-\-add-channel.  All optional parameters specified in \-\-add-channel can be
++changed with \-\-modify-profile.  See \-\-add-channel.
 +
 +.SS Compatibility options:
 +Most nfsen v1.2.x options are accepted at the proper place at the command line. 
