@@ -7,7 +7,7 @@ Subject: Empty sources list
  1 file changed, 3 insertions(+), 3 deletions(-)
 
 diff --git a/etc/nfsen-dist.conf b/etc/nfsen-dist.conf
-index bd9e93e..d641a0c 100644
+index 1ee090b..1d4f76a 100644
 --- a/etc/nfsen-dist.conf
 +++ b/etc/nfsen-dist.conf
 @@ -160,9 +160,9 @@ $PROFILERS = 6;
