@@ -1,0 +1,36 @@
+From: John Ferlito <johnf@inodes.org>
+Date: Fri, 22 Feb 2013 15:26:55 +1100
+Subject: Clean up install script
+
+* Don't ask for perl version
+* Don't check nfdump binaries exist
+---
+ install.pl |    8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
+
+diff --git a/install.pl b/install.pl
+index 2f9c342..68f1698 100755
+--- a/install.pl
++++ b/install.pl
+@@ -198,9 +198,9 @@ sub VerifyConfig {
+ 
+ 	die "Missing PREFIX directory of nfdump tools!\n" unless defined $NfConf::PREFIX;
+ 	die "Configured PREFIX directory '$NfConf::PREFIX' not found!\n" unless -d  $NfConf::PREFIX;
+-	foreach my $binary ( 'nfcapd', 'nfdump', 'nfprofile' ) {
+-		die "nfdump tools installation error: '$binary' not found in '$NfConf::PREFIX'" unless -f "$NfConf::PREFIX/$binary";
+-	}
++	#foreach my $binary ( 'nfcapd', 'nfdump', 'nfprofile' ) {
++	#	die "nfdump tools installation error: '$binary' not found in '$NfConf::PREFIX'" unless -f "$NfConf::PREFIX/$binary";
++	#}
+ 
+ 	my @out = `$NfConf::PREFIX/nfdump -V`;
+ 	if ( scalar @out <= 0 ) {
+@@ -701,7 +701,7 @@ print "Version: $nfsen_version: $VERSION\n\n";
+ 
+ # Get Perl
+ # Put this into a NfConf variable, so we can use the standard Patch Procedure
+-$NfConf::PERL = GetPerl();
++$NfConf::PERL = "/usr/bin/perl";
+ $NfConf::INSTPREFIX = $ENV{'INSTPREFIX'};
+ if ( defined $NfConf::INSTPREFIX ) {
+ 	if ( ! $NfConf::INSTPREFIX =~ /\/$/ ) {
