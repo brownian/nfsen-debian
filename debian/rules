@@ -16,3 +16,4 @@ MOO=COW
 
 override_dh_auto_install:
 	./install.pl etc/nfsen-dist.conf
+	rm debian/nfsen/etc/nfsen/nfsen-dist.conf
