@@ -15,6 +15,14 @@ export DH_VERBOSE=1
 MOO=COW
 
 override_dh_auto_install:
+	# Use the broken installer
 	./install.pl etc/nfsen-dist.conf
+	# Remove the dist etc file
 	rm debian/nfsen/etc/nfsen/nfsen-dist.conf
-	for i in `rgrep debian/nfsen debian/nfsen`; do sed -i $i 's:debian/nfsen::'; done
+	# Cleanup the installed paths
+	for i in `rgrep -l debian/nfsen debian/nfsen`; do sed -i 's:debian/nfsen::' $$i; done
+	# Fix up the perms
+	chmod -x debian/nfsen/usr/libexec/nfsen/*.pm
+
+dh_override_installchangelog:
+	dh_installchangelogs ChangeLog upstream
