@@ -7,7 +7,7 @@ Subject: Debianise install paths
  1 file changed, 13 insertions(+), 13 deletions(-)
 
 diff --git a/etc/nfsen-dist.conf b/etc/nfsen-dist.conf
-index cf08470..380e74d 100644
+index cf08470..9853f9f 100644
 --- a/etc/nfsen-dist.conf
 +++ b/etc/nfsen-dist.conf
 @@ -18,25 +18,25 @@
@@ -46,7 +46,7 @@ index cf08470..380e74d 100644
  #
  # Var space for NfSen
 -$VARDIR="${BASEDIR}/var";
-+$VARDIR="${BASEDIR}/var/nfsen";
++$VARDIR="${BASEDIR}/var/lib/nfsen";
  
  # directory for all pid files
  # $PIDDIR="$VARDIR/run";
