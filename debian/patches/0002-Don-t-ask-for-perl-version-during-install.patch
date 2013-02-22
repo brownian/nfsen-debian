@@ -1,0 +1,21 @@
+From: John Ferlito <johnf@inodes.org>
+Date: Fri, 22 Feb 2013 15:26:55 +1100
+Subject: Don't ask for perl version during install
+
+---
+ install.pl |    2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/install.pl b/install.pl
+index 2f9c342..4482a3c 100755
+--- a/install.pl
++++ b/install.pl
+@@ -701,7 +701,7 @@ print "Version: $nfsen_version: $VERSION\n\n";
+ 
+ # Get Perl
+ # Put this into a NfConf variable, so we can use the standard Patch Procedure
+-$NfConf::PERL = GetPerl();
++$NfConf::PERL = "/usr/bin/perl";
+ $NfConf::INSTPREFIX = $ENV{'INSTPREFIX'};
+ if ( defined $NfConf::INSTPREFIX ) {
+ 	if ( ! $NfConf::INSTPREFIX =~ /\/$/ ) {
