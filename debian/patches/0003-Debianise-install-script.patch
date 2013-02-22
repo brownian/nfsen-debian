@@ -1,10 +1,10 @@
 From: John Ferlito <johnf@inodes.org>
-Date: Fri, 22 Feb 2013 15:26:55 +1100
-Subject: Clean up install script
+Date: Fri, 22 Feb 2013 15:58:13 +1100
+Subject: Debianise install script
 
-* Don't ask for perl version
-* Don't check nfdump binaries exist
-* Don't check the nfdump version
+* Don't look for nfdump binaries
+* Don't check nfdump version
+* Don't check perl version
 ---
  install.pl |   42 +++++++++++++++++++++---------------------
  1 file changed, 21 insertions(+), 21 deletions(-)

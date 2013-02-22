@@ -1,3 +1,3 @@
 0001-Debianise-install-paths.patch
-0002-Remove-sources-so-verification-doesn-t-fail.patch
-0003-Clean-up-install-script.patch
+0002-Empty-sources-list.patch
+0003-Debianise-install-script.patch

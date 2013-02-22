@@ -1,6 +1,6 @@
 From: John Ferlito <johnf@inodes.org>
-Date: Fri, 22 Feb 2013 15:40:58 +1100
-Subject: Remove sources so verification doesn't fail
+Date: Fri, 22 Feb 2013 15:58:00 +1100
+Subject: Empty sources list
 
 ---
  etc/nfsen-dist.conf |    6 +++---
