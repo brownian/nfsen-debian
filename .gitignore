@@ -1,2 +1,5 @@
 .pc
 debian/nfsen.debhelper.log
+debian/files
+debian/nfsen
+debian/nfsen.substvars
