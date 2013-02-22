@@ -41,7 +41,7 @@ case "$1" in
   start)
     [ "$VERBOSE" != no ] && log_daemon_msg "Starting $DESC " "$NAME"
     mkdir -p /var/run/nfsen
-    sudo chown -R $USER.$GROUP-data /var/run/nfsen
+    sudo chown -R $USER.$GROUP /var/run/nfsen
     $DAEMON start
     case "$?" in
 		0|1) [ "$VERBOSE" != no ] && log_end_msg 0 ;;
@@ -68,6 +68,7 @@ case "$1" in
 	$DAEMON stop
 	case "$?" in
 	  0|1)
+    sudo chown -R $USER.$GROUP /var/run/nfsen
 		$DAEMON start
 		case "$?" in
 			0) log_end_msg 0 ;;
