@@ -44,7 +44,7 @@ index 0000000..fd9292b
 +GNU/Linux system (but may be used by others).
 diff --git a/man/nfsen.8 b/man/nfsen.8
 new file mode 100644
-index 0000000..46f3290
+index 0000000..1039621
 --- /dev/null
 +++ b/man/nfsen.8
 @@ -0,0 +1,225 @@
@@ -148,7 +148,7 @@ index 0000000..46f3290
 +Commit  a new profile with \fIprofile\fR == [profilegroup/]profilename A new
 +created profile with all initial channels added is committed.  A history profile
 +is built. A continuous profile starts profiling.  Only profiles in status 'new'
-+can be commited.
++can be committed.
 +
 +.TP
 +.B \-\-delete-profile|-d \fIprofile\fR
