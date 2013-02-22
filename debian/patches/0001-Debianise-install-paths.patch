@@ -1,0 +1,81 @@
+From: John Ferlito <johnf@inodes.org>
+Date: Fri, 22 Feb 2013 15:10:09 +1100
+Subject: Debianise install paths
+
+---
+ etc/nfsen-dist.conf |   20 ++++++++++----------
+ 1 file changed, 10 insertions(+), 10 deletions(-)
+
+diff --git a/etc/nfsen-dist.conf b/etc/nfsen-dist.conf
+index cf08470..a023407 100644
+--- a/etc/nfsen-dist.conf
++++ b/etc/nfsen-dist.conf
+@@ -18,7 +18,7 @@
+ 
+ #
+ # Required for default layout
+-$BASEDIR = "/data/nfsen";
++$BASEDIR = "debian/nfsen/usr";
+ 
+ #
+ # Where to install the NfSen binaries
+@@ -26,17 +26,17 @@ $BINDIR="${BASEDIR}/bin";
+ 
+ #
+ # Where to install the NfSen Perl modules
+-$LIBEXECDIR="${BASEDIR}/libexec";
++$LIBEXECDIR="${BASEDIR}/libexec/nfsen";
+ 
+ #
+ # Where to install the config files
+-$CONFDIR="${BASEDIR}/etc";
++$CONFDIR="${BASEDIR}/etc/nfsen";
+ 
+ #
+ # NfSen html pages directory:
+ # All php scripts will be installed here.
+ # URL: Entry point for nfsen: http://<webserver>/nfsen/nfsen.php
+-$HTMLDIR    = "/var/www/nfsen/";
++$HTMLDIR    = "${BASEDIR}/var/www/nfsen/";
+ 
+ #
+ # Where to install the docs
+@@ -60,15 +60,15 @@ $VARDIR="${BASEDIR}/var";
+ #
+ # The Profiles stat directory, where all profile information
+ # RRD DBs and png pictures of the profile are stored
+-$PROFILESTATDIR="${BASEDIR}/profiles-stat";
++$PROFILESTATDIR="${VARDIR}/profiles-stat";
+ 
+ #
+ # The Profiles directory, where all netflow data is stored
+-$PROFILEDATADIR="${BASEDIR}/profiles-data";
++$PROFILEDATADIR="${VARDIR}/profiles-data";
+ 
+ #
+ # Where go all the backend plugins
+-$BACKEND_PLUGINDIR="${BASEDIR}/plugins";
++$BACKEND_PLUGINDIR="${LIBEXECDIR}/plugins";
+ 
+ #
+ # Where go all the frontend plugins
+@@ -76,7 +76,7 @@ $FRONTEND_PLUGINDIR="${HTMLDIR}/plugins";
+ 
+ #
+ # nfdump tools path
+-$PREFIX  = '/usr/local/bin';
++$PREFIX  = '/usr/bin';
+ 
+ #
+ # nfsend communication socket
+@@ -92,8 +92,8 @@ $USER    = "netflow";
+ 
+ # user and group of the web server process
+ # All netflow processing will be done with this user
+-$WWWUSER  = "www";
+-$WWWGROUP = "www";
++$WWWUSER  = "www-data";
++$WWWGROUP = "www-data";
+ 
+ # Receive buffer size for nfcapd - see man page nfcapd(1)
+ $BUFFLEN = 200000;
