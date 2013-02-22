@@ -1,0 +1,12 @@
+Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: nfsen
+Source: http://sourceforge.net/projects/nfsen/
+
+Files: *
+Copyright: 2004 SWITCH - Teleinformatikdienste fuer Lehre und Forschung
+License: BSD
+
+Files: debian/*
+Copyright: 2013 John Francesco Ferlito <johnf@inodes.org>
+           2011 Alexander Pyhalov <alp@sfedu.ru>
+License: BSD

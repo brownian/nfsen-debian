@@ -1,0 +1,16 @@
+Source: nfsen
+Section: net
+Priority: optional
+Maintainer: John Francesco Ferlito <johnf@inodes.org>
+Build-Depends: debhelper (>= 8.0.0)
+Standards-Version: 3.9.3
+Homepage: http://nfsen.sourceforge.net/
+Vcs-Git: git://git.github.com/bulletproofnetworks/nfsen-debian.git
+Vcs-Browser: http://git.github.com/bulletproofnetworks/nfsen-debian
+
+Package: nfsen
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, nfdump (>= 1.6.1), librrds-perl (>= 1.2.11)
+Description: manages nfdump data flows
+ nfsen can be used to manage nfdump data flows and to create reports
+ from nfdump files.
