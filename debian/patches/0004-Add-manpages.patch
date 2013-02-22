@@ -1,0 +1,306 @@
+From: John Ferlito <johnf@inodes.org>
+Date: Fri, 22 Feb 2013 17:48:48 +1100
+Subject: Add manpages
+
+---
+ man/RebuildHierarchy.8 |   25 ++++++
+ man/nfsen.8            |  225 ++++++++++++++++++++++++++++++++++++++++++++++++
+ man/nfsend.8           |   25 ++++++
+ 3 files changed, 275 insertions(+)
+ create mode 100644 man/RebuildHierarchy.8
+ create mode 100644 man/nfsen.8
+ create mode 100644 man/nfsend.8
+
+diff --git a/man/RebuildHierarchy.8 b/man/RebuildHierarchy.8
+new file mode 100644
+index 0000000..fd9292b
+--- /dev/null
++++ b/man/RebuildHierarchy.8
+@@ -0,0 +1,25 @@
++.TH "NFSEND" 8 "2008-03-05" "Netflow Sensor" "RebuildHierarchy"
++
++.SH NAME
++RebuildHierarchy \- Netflow Sensor profile directory hierarchy rebuilder
++
++.SH "SYNOPSIS"
++
++.PP
++\fBRebuildHierarchy\fR  [ \fIoptions\fR ]
++
++.SH "DESCRIPTION"
++
++The full documentation is available in /usr/share/doc/nfsen/html/.
++
++.SH "BUGS"
++Bug Database is available at
++http://sourceforge.net/tracker/?group_id=134525&atid=730180
++
++.SH "SEE ALSO"
++nfsen(\fB8\fR), nfdump(\fB1\fR), nfcapd(\fB1\fR)
++
++.SH "AUTHOR"
++Copyright 2005, 2006, 2007 Peter Haag <peter.haag@switch.ch> for SWITCH. This
++manual page was written by Erik Wenzel <erik@debian.org> for the Debian
++GNU/Linux system (but may be used by others).
+diff --git a/man/nfsen.8 b/man/nfsen.8
+new file mode 100644
+index 0000000..c937733
+--- /dev/null
++++ b/man/nfsen.8
+@@ -0,0 +1,225 @@
++.TH "NFSEN" 8 "2008-03-05" "Netflow Sensor" "nfsen"
++
++.SH NAME
++nfsen \- Netflow Sensor web frontend to nfdump netflow tool
++
++.SH "SYNOPSIS"
++
++.PP
++\fBnfsen\fR  command [ \fIoptions\fR ]
++
++.SH "DESCRIPTION"
++.SS Commands
++The commands below are only accepted, when running nfsen as root.
++
++.TP
++.B start
++Start nfsen. Can be linked from init.d, rc.d directories to start/stop nfsen
++
++.TP
++.B stop
++Stop nfsen. Can be linked from init.d, rc.d directories to start/stop nfsen
++
++.TP
++.B reconfig
++Reconfigure nfsen, when adding/deleting netflow sources. First make the
++appropriate changes in nfsen.conf and then run 'nfsen reconfig'. The nfcapd
++collectors are started or stopped as needed. In case of a source removal, all
++netflow data is deleted.
++
++.TP
++.B status
++Prints the status of all collectors and nfsend.
++
++.SS In Simulation mode only:
++.TP
++.B abort-reset
++Stops nfsen and rolls everything back to the installation state.
++.PP
++
++The full documentation is available in /usr/share/doc/nfsen/html/.
++
++.SH "OPTIONS"
++
++.TP
++.B --help|-h 
++This help
++
++.TP
++.B --version|-V
++Version of nfsen
++
++.TP
++.B --get-profilelist|-A
++List all profiles.
++
++.TP
++\fB--get-profile|-l\fR \fIprofile\fR
++List profile with \fIprofile\fR == [profilegroup/]profilename
++
++.TP
++\fB--add-profile|-a\fR \fIprofile\fR
++Add new profile with \fIprofile\fR == [profilegroup/]profilename
++
++.SS Optional parameters:
++.RS
++.IP description=\fIone_line_description\fR
++A one line description for the profile. Default '' no comment.
++
++.IP tstart=\fIstart-time\fR 
++Start time of profile. Format yyyy-mm-dd-HH-MM, or yyyymmddHHMM
++Specify time for history profile, leave it empty to start from now.
++Default: start from now.
++
++.IP tend=\fIstart-time\fR 
++End time of profile. Format yyyy-mm-dd-HH-MM, or yyyymmddHHMM
++Specify time for history profile, leave it empty for a continuous profile.
++Default: empty for continuous profile.
++
++.IP expire=\fIexpiresize\fR
++Set max life time for profile data. Format: \fInum\fR [d|day|days|h|hour|hours]
++Set to 0 for unlimited life time. Defaults to '0 hours'
++
++.IP maxsize=\fImax_size\fR
++Set max disk size of profile data. Format: \fInum\fR [k|kb|m|mb|g|gb|t|tb]
++Set to 0 for unlimited grow of disk space for profile. Defaults to '0 mb'
++
++.IP shadow=\fI0|1\fR
++Create data collecting or shadow profile. A shadow profile does record any data.
++Defaults to 0.
++
++.PP
++The new profile has no channels assigned yet and stays in status 'new'. Assign
++new channels with --add-channel. When all channels added, commit the profile
++with --commit-profile
++
++.TP
++.B --commit-profile|-c \fIprofile\fR
++Commit  a new profile with \fIprofile\fR == [profilegroup/]profilename A new
++created profile with all initial channels added is commited.  A history profile
++is built. A continuous profile starts profiling.  Only profiles in status 'new'
++can be commited.
++
++.TP
++.B --delete-profile|-d \fIprofile\fR
++Delete profile with \fIprofile\fR == [profilegroup/]profilename
++All including channels and netflow data will be deleted.
++
++.TP
++.B --modify-profile|-m \fIprofile\fR
++Modify profile with \fIprofile\fR == [profilegroup/]profilename
++
++.SS Optional parameters:
++.RS
++.IP description=\fIone_line_description\fR
++A one line description for the profile.
++
++.IP
++expire=\fIexpiresize\fR
++Set max life time for profile data. Format: \fInum\fR [d|day|days|h|hour|hours]
++Set to 0 for unlimited life time. Defaults to '0 hours'
++
++.IP
++size=\fImax_size\fR
++Set max disk size of profile data. Format: \fInum\fR [k|kb|m|mb|g|gb|t|tb]
++Set to 0 for unlimited grow of disk space for profile. Defaults to '0 mb'
++
++.IP
++lock=\fI0|1\fR
++Lock or unlock the profile. USE WITH CARE. There are generally good
++reasons, why a profile is locked.
++
++.TP
++.B --rebuild-profile|-r \fIprofile\fR
++Rebuilds profile with \fIprofile\fR == [profilegroup/]profilename
++Scans all channels in the given profile and recalculates the size. Graphics
++data are not affected.
++
++.TP
++.B --expire-profile|-X \fIprofile\fR
++Immediately expires the given profile with \fIprofile\fR == [profilegroup/]profilename
++
++.TP
++.B --add-channel \fIchannelname\fR
++Add new channel with \fIchannelname\fR == [[profilegroup/]profile/]channel
++profilegroup and profile can also be specified using the optional parameters
++below.
++
++.SS Parameters:
++.TP
++profile=\fIprofilename\fR
++Alternatively specify the profile with \fIprofilename\fR == [profilegroup/]profilename
++
++.TP
++profilegroup=\fIprofilegroup\fR
++Alternatively specfy the profile group with \fIprofilegroup\fR == profilename
++
++Any valid combination is possible to specify a channel, however the name must
++be non-ambiguous.
++
++.SS optional parameters:
++.TP
++sourcelist=\fIlist\fR
++Specify the netflow input sources for this channel. At least one channel from
++profile 'life' must be specified. 
++
++.RS
++.IP \fIlist\fR
++is a '|' separated list of channels of profile 'life'.  Default: All channels
++from profile 'life' are selected.
++
++.IP filter=\fIchannel_filter\fR
++Set the specified filter for this channel. Needs to be a valid nfdump filter.
++
++.IP colour|color=\fI#num\fR
++Set the colour for this channel to be displyed. Format: #rrggbb
++
++.IP sign=+|-
++Sets the +/- y-axis for this channel. Defaults to '+'
++
++.IP order=\fInum\fR
++Sets the order of the display stack in the graphs. order=1 is drawn first.
++Bigger values follow next. Defaults to last channel in the stack.
++
++.IP newgroup=\fInewgroup\fR
++Move profile into new group \fInewgroup\fR
++
++.TP
++.B --delete-channel \fIchannelname\fR
++Delete a given channel from a profile. All netflow und graphic data are deleted.
++Format for \fIchannelname\fR see --add-channel.
++
++.TP
++.B --modify-channel \fIchannelname\fR
++Modifies a given channel in a profile. Format for \fIchannelname\fR see
++--add-channel.  All optional parameters specified in --add-channel can be
++changed with --modify-profile.  See --add-channel.
++
++.SS Compatibility options:
++Most nfsen v1.2.x options are accepted at the proper place at the command line. 
++The following parameters are equivalent:
++
++.nf
++    -D \fIdescription\fR description=\fIdescription\fR
++    -B \fItstart\fR      tstart=\fIstart time\fR
++    -E \fItend\fR        tend=\fIend time\fR
++    -e \fIexpire\fR      expire=\fIexpire\fR
++    -s \fImax size\fR    size=\fImax size\fR
++    -U               lock=0
++    -L               lock=1
++    -F               force=1
++.fi
++
++.SH "BUGS"
++Bug Database is available at
++http://sourceforge.net/tracker/?group_id=134525
++
++.SH "SEE ALSO"
++nfsend(\fB8\fR), RebuildHierarchy(\fB8\fR), nfdump(\fB1\fR), nfcapd(\fB1\fR)
++
++.SH "AUTHOR"
++Copyright 2005, 2006, 2007 Peter Haag <peter.haag@switch.ch> for SWITCH. This
++manual page was written by Erik Wenzel <erik@debian.org> for the Debian
++GNU/Linux system (but may be used by others).
++
++
+diff --git a/man/nfsend.8 b/man/nfsend.8
+new file mode 100644
+index 0000000..5e52ed4
+--- /dev/null
++++ b/man/nfsend.8
+@@ -0,0 +1,25 @@
++.TH "NFSEND" 8 "2008-03-05" "Netflow Sensor" "nfsend"
++
++.SH NAME
++nfsend \- Netflow Sensor profile update daemon
++
++.SH "SYNOPSIS"
++
++.PP
++\fBnfsend\fR  [ \fIoptions\fR ]
++
++.SH "DESCRIPTION"
++In general, \fBnfsend\fR should not be invoked directly, but rather should be invoked via
++\fBnfsen\fR. 
++
++.SH "BUGS"
++Bug Database is available at
++http://sourceforge.net/tracker/?group_id=134525&atid=730180
++
++.SH "SEE ALSO"
++nfsen(\fB8\fR), RebuildHierarchy(\fB8\fR), nfdump(\fB1\fR), nfcapd(\fB1\fR)
++
++.SH "AUTHOR"
++Copyright 2005, 2006, 2007 Peter Haag <peter.haag@switch.ch> for SWITCH. This
++manual page was written by Erik Wenzel <erik@debian.org> for the Debian
++GNU/Linux system (but may be used by others).
