@@ -1,3 +1,9 @@
+nfsen (1.3.6p1-2ubuntu1) lucid; urgency=low
+
+  * Log to conole during install so build isn't dependant on syslog
+
+ -- John Francesco Ferlito <johnf@inodes.org>  Wed, 27 Feb 2013 12:16:51 +1100
+
 nfsen (1.3.6p1-2) lucid; urgency=low
 
   * Add all the depends to build depends too

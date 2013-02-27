@@ -15,6 +15,8 @@
 MOO=COW
 
 override_dh_auto_install:
+	# Make sur we log to console during install as there is no syslog daemon ib pbuilder
+	sed -i "s:# \$$LogSocket = 'unix';:\$$LogSocket = 'console';:" etc/nfsen-dist.conf
 	# Use the broken installer
 	./install.pl etc/nfsen-dist.conf
 	# Remove the dist etc file
@@ -22,6 +24,7 @@ override_dh_auto_install:
 	# Cleanup the installed paths
 	for i in `rgrep -l debian/nfsen debian/nfsen`; do sed -i 's:debian/nfsen::' $$i; done
 	sed -i 's:$$BASEDIR = "";:$$BASEDIR = "/usr";:' debian/nfsen/etc/nfsen/nfsen.conf
+	sed -i "s:\$$LogSocket = 'console';:# \$$LogSocket = 'unix';:" debian/nfsen/etc/nfsen/nfsen.conf
 	# Move files around
 	mv debian/nfsen/usr/bin/RebuildHierarchy.pl debian/nfsen/usr/bin/RebuildHierarchy
 
