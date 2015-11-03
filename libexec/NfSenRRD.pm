@@ -493,7 +493,7 @@ sub GenDetailsGraph {
 	if ( $linegraph ) {
 		foreach my $def ( @DEFS ) {
 			$HasLabel = $light ? "" : ":$def". ' ' x ($max_label_length - length($def)) ;
-			push @rrdargs, "LINE1:$def$$profileinfo{'channel'}{$def}{'colour'}${HasLabel}";
+			push @rrdargs, "LINE$NfConf::LINE_THICKNESS:$def$$profileinfo{'channel'}{$def}{'colour'}${HasLabel}";
 		}
 	} else {
 		if ( scalar @DEFSpos > 0 ) {
@@ -596,7 +596,7 @@ sub GenAlertGraph {
 	my @AVGcolours = ( '#ff0000', '#800000', '#008080', '#00ffff', '#ffff00', '#808000', '#0000ff'  );
 	foreach my $def ( @DEFS ) {
 		my $colour = shift @AVGcolours;
-		push @rrdargs, "LINE1:${def}${colour}:$def";
+		push @rrdargs, "LINE$NfConf::LINE_THICKNESS:${def}${colour}:$def";
 	}
 
 	my ($averages,$xsize,$ysize) = RRDs::graph( @rrdargs );

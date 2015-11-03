@@ -92,6 +92,8 @@ our $LogSocket;
 
 our $CYCLETIME;
 
+our $LINE_THICKNESS;
+
 #
 # Loads the config from nfsen.conf file
 # returns 1 on success. 
@@ -152,6 +154,8 @@ sub LoadConfig {
 
 	$NFPROFILEOPTS	 = '';
 	$NFEXPIREOPTS	 = '';
+
+	$LINE_THICKNESS  = 1;
 
 	my $log_type 	= $^V =~ /5.10/ ? 'native' : 'unix';
 
