@@ -178,9 +178,9 @@ sub LongHelp {
     optional parameters:
       sourcelist=<list>
       Specify the netflow input sources for this channel. At least one channel from
-      profile 'life' must be specified. 
-      <list> is a '|' separated list of channels of profile 'life'.
-      Default: All channels from profile 'life' are selected.
+      profile 'live' must be specified. 
+      <list> is a '|' separated list of channels of profile 'live'.
+      Default: All channels from profile 'live' are selected.
 
       filter=<channel filter>
       Set the specified filter for this channel. Needs to be a valid nfdump filter.

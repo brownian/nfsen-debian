@@ -52,7 +52,7 @@ $IPStatArg	  = array ( '-s record',
 						'-s vlan',   '-s srcvlan','-s dstvlan',
 						'-s srcmac', '-d dstmac', '-s inmac', '-s outmac',
 						'-s insrcmac',   '-s outdstmac','-s indstmac', '-s outsrcmac',
-						'-s mapls1', '-s mapls2', '-s mapls3', '-s mapls4', '-s mapls5', '-s mapls6', '-s mapls7', '-s mapls8', '-s mapls9', '-s mapls10',
+						'-s mpls1', '-s mpls2', '-s mpls3', '-s mpls4', '-s mpls5', '-s mpls6', '-s mpls7', '-s mpls8', '-s mpls9', '-s mpls10',
 					);
 
 $IPStatOrder  = array ( 'flows', 'packets', 'bytes', 'pps', 'bps', 'bpp' );
